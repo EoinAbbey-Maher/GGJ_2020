@@ -8,21 +8,26 @@ public class PuzzleScript : MonoBehaviour
     public GameObject cubeSelectScreen;
     public GameObject[] puzzles;
     public GameObject[] colliderObjects;
+    public GameObject victoryScreen;
+    public Canvas canvas;
 
-    private bool[] puzzleSolved;
-    private bool[] puzzlesActive;
-    private bool cubeOverlayActive;
+    public bool[] puzzleSolved = new bool[6];
+    public bool[] puzzlesActive = new bool[6];
     private bool victory;
 
 
     void Start()
     {
+        
         for (int i = 0; i < 6; i++)
         {
             puzzleSolved[i] = false;
             puzzlesActive[i] = false;
-            cubeOverlayActive = true;
             victory = false;
+        }
+        for(int i = 5; i > 5 - puzzles.Length; i--)
+        {
+            puzzleSolved[i] = true;
         }
     }
 
@@ -34,17 +39,20 @@ public class PuzzleScript : MonoBehaviour
             {
                 if (!puzzleSolved[i])
                 {
+                    victoryScreen.SetActive(false);
                     break;
                 }
                 else if (i == 5)
                 {
                     //change to victory screen here
                     victory = true;
+                    //cubeSelectScreen.SetActive(false);
+                    victoryScreen.SetActive(true);
                 }
             }
         }
 
-        checkCollisions();
+      checkCollisions();
     }
 
     void checkCollisions()
@@ -69,8 +77,8 @@ public class PuzzleScript : MonoBehaviour
                         if(!puzzleSolved[0])
                         {
                             puzzlesActive[0] = true;
-                            cubeSelectScreen.SetActive(false);
-                            Instantiate(puzzles[0]);
+                           // cubeSelectScreen.SetActive(false);
+                            Instantiate(puzzles[0], canvas.GetComponent<Transform>());
                         }
                     }
                     else if (hit.collider.CompareTag("Bottom"))
@@ -78,8 +86,8 @@ public class PuzzleScript : MonoBehaviour
                         if (!puzzleSolved[1])
                         {
                             puzzlesActive[1] = true;
-                            cubeSelectScreen.SetActive(false);
-                            Instantiate(puzzles[1]);
+                          //  cubeSelectScreen.SetActive(false);
+                            Instantiate(puzzles[1], canvas.GetComponent<Transform>());
                         }
                     }
                     else if (hit.collider.CompareTag("Left"))
@@ -87,8 +95,8 @@ public class PuzzleScript : MonoBehaviour
                         if (!puzzleSolved[2])
                         {
                             puzzlesActive[2] = true;
-                            cubeSelectScreen.SetActive(false);
-                            Instantiate(puzzles[2]);
+                          //  cubeSelectScreen.SetActive(false);
+                            Instantiate(puzzles[2], canvas.GetComponent<Transform>());
                         }
                     }
                     else if (hit.collider.CompareTag("Right"))
@@ -96,8 +104,8 @@ public class PuzzleScript : MonoBehaviour
                         if (!puzzleSolved[3])
                         {
                             puzzlesActive[3] = true;
-                            cubeSelectScreen.SetActive(false);
-                            Instantiate(puzzles[3]);
+                         //   cubeSelectScreen.SetActive(false);
+                            Instantiate(puzzles[3], canvas.GetComponent<Transform>());
                         }
                     }
                     else if (hit.collider.CompareTag("Front"))
@@ -105,8 +113,8 @@ public class PuzzleScript : MonoBehaviour
                         if (!puzzleSolved[4])
                         {
                             puzzlesActive[4] = true;
-                            cubeSelectScreen.SetActive(false);
-                            Instantiate(puzzles[4]);
+                           // cubeSelectScreen.SetActive(false);
+                            Instantiate(puzzles[4], canvas.GetComponent<Transform>());
                         }
                     }
                     else if (hit.collider.CompareTag("Back"))
@@ -114,8 +122,8 @@ public class PuzzleScript : MonoBehaviour
                         if (!puzzleSolved[5])
                         {
                             puzzlesActive[5] = true;
-                            cubeSelectScreen.SetActive(false);
-                            Instantiate(puzzles[5]);
+                         //   cubeSelectScreen.SetActive(false);
+                            Instantiate(puzzles[5], canvas.GetComponent<Transform>());
                         }
                     }
                 }

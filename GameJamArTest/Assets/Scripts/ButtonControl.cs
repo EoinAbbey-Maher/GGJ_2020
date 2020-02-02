@@ -10,11 +10,16 @@ public class ButtonControl : MonoBehaviour
     public float counter = 0.0f;
     private bool isPressed;
     private int color;
+    public Text Time;
     private int timeLimit;
+
+    public GameObject mainScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        
+
         color = Random.Range(1,7);
         switch(color)
         {
@@ -64,11 +69,11 @@ public class ButtonControl : MonoBehaviour
         {
             isPressed = true;
         }
-        else if (Input.GetMouseButton(0))
+        if (isPressed)
         {
-            counter = counter + (1.0f / 60.0f);
+            counter = counter + (1.0f/ 60);
         }
-        else if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             isPressed = false;
         }
@@ -80,10 +85,19 @@ public class ButtonControl : MonoBehaviour
             }
             counter = 0;
         }
+
+        Time.text = counter.ToString();
     }
 
     void Victory()
     {
+        PuzzleScript script = mainScript.GetComponent<PuzzleScript>();
+        script.puzzleSolved[2] = true;
+        script.puzzlesActive[2] = false;
+        script.cubeSelectScreen.SetActive(true);
+
+
+        Destroy(gameObject);
         Debug.Log("works");
     }
 }

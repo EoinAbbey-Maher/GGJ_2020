@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class CubeMover : MonoBehaviour
 {
-    public float hSpeed;
-    public float vSpeed;
-
-    void Start()
+    public void xAxis(int angle)
     {
-        hSpeed = 2.0f;
-        vSpeed = 2.0f;
+        gameObject.transform.Rotate(angle, 0, 0);
     }
 
-    void Update()
+    public void yAxis(int angle)
     {
-        if (Input.GetMouseButton(0))
-        {
-            float v = vSpeed * Input.GetAxis("Mouse X");
-            float h = hSpeed * Input.GetAxis("Mouse Y");
+        gameObject.transform.Rotate(0, angle, 0);
+    }
 
-            transform.Rotate(v, h, 0);
-        }
+    public void zAxis(int angle)
+    {
+        gameObject.transform.Rotate(0, 0, angle);
     }
 }

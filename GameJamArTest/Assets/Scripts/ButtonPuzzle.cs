@@ -13,6 +13,7 @@ public class ButtonPuzzle : MonoBehaviour
     public static int display;
     public Text text;
 
+    public GameObject mainScript;
 
     void Start()
     {
@@ -106,12 +107,20 @@ public class ButtonPuzzle : MonoBehaviour
                 buttons[i].interactable = true;
             }
             correct = true;
+
         }
     }
     public void Victory()
     {
+        PuzzleScript script = mainScript.GetComponent<PuzzleScript>();
+        script.puzzleSolved[0] = true;
+        script.puzzlesActive[0] = false;
+        script.cubeSelectScreen.SetActive(true);
+
+        Destroy(gameObject);
         Debug.Log("victory");
     }
+
     public void ProcessModes(int t_num)
     {
         switch (mode)
@@ -242,20 +251,5 @@ public class ButtonPuzzle : MonoBehaviour
             default:
                 break;
         }
-    }
-
-    public void xAxis(int angle)
-    {
-        gameObject.transform.Rotate(angle, 0, 0);
-    }
-
-    public void yAxis(int angle)
-    {
-        gameObject.transform.Rotate(0, angle, 0);
-    }
-
-    public void zAxis(int angle)
-    {
-        gameObject.transform.Rotate(0, 0, angle);
     }
 }

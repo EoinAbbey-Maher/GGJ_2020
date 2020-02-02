@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeSelectScreen: {fileID: 7836343969453371890}
+  puzzles:
+  - {fileID: 5757791046850623083, guid: 3afc5a654514ad748b34f113a605cdf9, type: 3}
+  colliderObjects: []
 --- !u!1 &8636829252658504291
 GameObject:
   m_ObjectHideFlags: 0

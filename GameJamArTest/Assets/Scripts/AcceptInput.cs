@@ -13,6 +13,8 @@ public class AcceptInput : MonoBehaviour
     private const int MAX_CLUES = 4;
     public Text[] clues;
     private string[] cryptic = {"green", "fly", "pineapple", "skin"};
+
+    public GameObject mainScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +77,12 @@ public class AcceptInput : MonoBehaviour
 
     private void Victory()
     {
+        PuzzleScript script = mainScript.GetComponent<PuzzleScript>();
+        script.puzzleSolved[1] = true;
+        script.cubeSelectScreen.SetActive(true);
+        script.puzzlesActive[1] = false;
+        Destroy(gameObject);
+
         Debug.Log("Victory");
     }
 
