@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class ButtonPuzzle : MonoBehaviour
 {
     private const int TOTAL_BUTTONS = 6;
     public Button[] buttons;
@@ -12,18 +12,14 @@ public class NewBehaviourScript : MonoBehaviour
     private int mode;
     public static int display;
     public Text text;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         mode = Random.Range(1, 4);
         display = mode;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void HandleClicks(int t_num)
     {
         bool deactivated = false;
