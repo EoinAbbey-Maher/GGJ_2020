@@ -7,17 +7,15 @@ public class TextUpdate : MonoBehaviour
 {
     public Text clue;
     private int mode;
-    // Start is called before the first frame update
+
     void Start()
     {
         clue = GetComponent<Text>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
-        mode = NewBehaviourScript.display;
+        mode = ButtonPuzzle.display;
         clue.text = mode.ToString();
     }
 }

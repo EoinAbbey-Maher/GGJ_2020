@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="box" size="0.100000 0.092360" />
+    <ImageTarget name="Pentagram" size="0.050000 0.053215" />
+    <ImageTarget name="GGJ2020Disk" size="0.040000 0.040149" />
+  </Tracking>
+</QCARConfig>
