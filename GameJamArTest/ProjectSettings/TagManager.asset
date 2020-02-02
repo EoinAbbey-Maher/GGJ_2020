@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ButtonPuzzle
+  - ButtonHoldPuzzle
+  - PasswordPuzzle
+  - SliderPuzzle
+  - Top
+  - Bottom
+  - Left
+  - Right
+  - Front
+  - Back
+  - CubeScreen
   layers:
   - Default
   - TransparentFX
